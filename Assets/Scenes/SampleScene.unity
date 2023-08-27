@@ -11751,7 +11751,6 @@ GameObject:
   - component: {fileID: 1462437339}
   - component: {fileID: 1462437338}
   - component: {fileID: 1462437337}
-  - component: {fileID: 1462437343}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -45825,23 +45824,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!191 &1462437343
-OffMeshLink:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462437336}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_AreaIndex: 2
-  m_AgentTypeID: 0
-  m_Start: {fileID: 1462437342}
-  m_End: {fileID: 1805219704}
-  m_CostOverride: -1
-  m_BiDirectional: 1
-  m_Activated: 1
-  m_AutoUpdatePositions: 0
 --- !u!43 &1471853946
 Mesh:
   m_ObjectHideFlags: 0
@@ -47359,7 +47341,6 @@ GameObject:
   - component: {fileID: 1805219701}
   - component: {fileID: 1805219700}
   - component: {fileID: 1805219699}
-  - component: {fileID: 1805219705}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -81433,23 +81414,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!191 &1805219705
-OffMeshLink:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805219698}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_AreaIndex: 2
-  m_AgentTypeID: 0
-  m_Start: {fileID: 1805219704}
-  m_End: {fileID: 1462437342}
-  m_CostOverride: -1
-  m_BiDirectional: 1
-  m_Activated: 1
-  m_AutoUpdatePositions: 0
 --- !u!1 &1808325058
 GameObject:
   m_ObjectHideFlags: 0
