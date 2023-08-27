@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4233001520680922963}
   - component: {fileID: 2069691719924598544}
   - component: {fileID: -5296041418387578843}
+  - component: {fileID: 8610009895006579284}
   m_Layer: 0
   m_Name: Ennemi
   m_TagString: Untagged
@@ -11725,3 +11726,20 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!191 &8610009895006579284
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094747702711030052}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 2
+  m_AgentTypeID: 0
+  m_Start: {fileID: 0}
+  m_End: {fileID: 0}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
