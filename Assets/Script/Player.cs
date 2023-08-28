@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -66,5 +67,16 @@ public class Player : MonoBehaviour
         }
 
         cc.Move((direction * vitesse + jump) * Time.deltaTime);
+    }
+    public static string raison = "";
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Ennemi"))
+        {
+            collision.gameObject.SetActive(false);
+            raison = "Vous avez été touché";
+            SceneManager.LoadScene("Menu");
+        }
     }
 }
