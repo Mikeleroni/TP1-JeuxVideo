@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     }
     void RotationCamera()
     {
-        rotationCamera += new Vector3(Input.GetAxis("Mouse Y") * senssibiliterCamera * Time.deltaTime,
+        rotationCamera += new Vector3(-Input.GetAxis("Mouse Y") * senssibiliterCamera * Time.deltaTime,
                                     Input.GetAxis("Mouse X") * senssibiliterCamera * Time.deltaTime, 0);
 
         rotationCamera.x = Mathf.Clamp(rotationCamera.x, -70, 70);
