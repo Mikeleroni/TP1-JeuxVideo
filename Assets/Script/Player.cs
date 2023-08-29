@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             raison = "Vous avez été touché";
+            print("toucher");
             SceneManager.LoadScene("Menu");
         }
     }
