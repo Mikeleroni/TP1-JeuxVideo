@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     {
         Deplacement();
         RotationCamera();
+        
     }
     void RotationCamera()
     {
@@ -39,6 +40,12 @@ public class Player : MonoBehaviour
     }
     void Deplacement()
     {
+
+        if (cc.transform.position.y <= -1)
+        {
+            print("Tomber");
+            cc.transform.position = new Vector3(4f, 0.5f, -5f);
+        }
         Vector3 direction = cam.transform.forward * Input.GetAxis("Vertical") + cam.transform.right * Input.GetAxis("Horizontal");
 
         if (direction.magnitude > 0)
