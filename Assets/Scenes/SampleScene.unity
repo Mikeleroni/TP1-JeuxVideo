@@ -82815,6 +82815,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &2121172560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3810708402143059318, guid: 80ac4eadc32c06241b55f20be05a2320, type: 3}
+  m_PrefabInstance: {fileID: 255379051188771948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!850595691 &2131506888
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -82932,6 +82943,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 255379051665299695, guid: 80ac4eadc32c06241b55f20be05a2320, type: 3}
+      propertyPath: temps
+      value: 
+      objectReference: {fileID: 2121172560}
     - target: {fileID: 2467181220613879679, guid: 80ac4eadc32c06241b55f20be05a2320, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,14 +10,17 @@ public class Player : MonoBehaviour
     [SerializeField] float forceJump = 5;
     [SerializeField] float senssibiliterCamera = 1;
     [SerializeField] float gravity = 1;
+    [SerializeField] TextMeshProUGUI temps;
 
     Vector3 rotationCamera = Vector3.zero;
     Vector3 jump = Vector3.zero;
     CharacterController cc;
     Camera cam;
+    public static float Survie;
     // Start is called before the first frame update
     void Start()
     {
+        
         cc = GetComponent<CharacterController>();
         cam = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -25,6 +29,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Survie = Time.time;
+        temps.SetText("" + Survie.ToString("#0.00"));
         Deplacement();
         RotationCamera();
         
