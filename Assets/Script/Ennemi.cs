@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Ennemi : MonoBehaviour
 {
@@ -20,5 +21,12 @@ public class Ennemi : MonoBehaviour
     void Update()
     {
         agent.destination = playerRef.transform.position;
+    }
+    public static string raison = "";
+    private void OnTriggerEnter(Collider other)
+    {
+        raison = "Vous avez été touché";
+
+        SceneManager.LoadScene("Menu");
     }
 }

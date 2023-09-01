@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textToucher.SetText(Player.raison);
+        textToucher.SetText(Ennemi.raison);
     }
 
     // Update is called once per frame

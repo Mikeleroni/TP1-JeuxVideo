@@ -2695,6 +2695,10 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 552247615162872769, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 723607004519515774, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
       propertyPath: m_End
       value: 
@@ -82980,6 +82984,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 552247615162872769, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 552247615162872769, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 723607004519515774, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
