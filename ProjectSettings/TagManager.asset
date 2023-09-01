@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MessageMort
+  - Ennemi
   layers:
   - Default
   - TransparentFX

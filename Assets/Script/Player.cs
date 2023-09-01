@@ -71,12 +71,11 @@ public class Player : MonoBehaviour
     public static string raison = "";
     private void OnCollisionEnter(Collision collision)
     {
-
+        print("toucher");
         if (collision.gameObject.CompareTag("Ennemi"))
         {
-            collision.gameObject.SetActive(false);
             raison = "Vous avez été touché";
-            print("toucher");
+            
             SceneManager.LoadScene("Menu");
         }
     }

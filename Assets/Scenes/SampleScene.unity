@@ -2763,6 +2763,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capsule (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2028434647787082306, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
+      propertyPath: m_TagString
+      value: Ennemi
+      objectReference: {fileID: 0}
     - target: {fileID: 4792394451767511938, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -83045,6 +83049,10 @@ PrefabInstance:
     - target: {fileID: 2028434647787082306, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
       propertyPath: m_Name
       value: Capsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028434647787082306, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
+      propertyPath: m_TagString
+      value: Ennemi
       objectReference: {fileID: 0}
     - target: {fileID: 4792394451767511938, guid: e5fe97ca3a638e242820b4e75222dd95, type: 3}
       propertyPath: m_Materials.Array.data[0]
