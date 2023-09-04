@@ -35,10 +35,14 @@ public class Player : MonoBehaviour
             print("Tomber");
             transform.position = startPostion;
         }
+        else 
+        {
            Survie = Time.time;
            temps.SetText("" + Survie.ToString("#0.00"));
            Deplacement();
            RotationCamera();
+
+        }
     }
     void RotationCamera()
     {
