@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] float senssibiliterCamera = 1;
     [SerializeField] float gravity = 1;
     [SerializeField] TextMeshProUGUI temps;
+    Vector3 startPostion = Vector3.zero;
 
     Vector3 rotationCamera = Vector3.zero;
     Vector3 jump = Vector3.zero;
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       startPostion = transform.position;
         cc = GetComponent<CharacterController>();
         cam = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -32,13 +33,12 @@ public class Player : MonoBehaviour
         if (cc.transform.position.y <= -1)
         {
             print("Tomber");
-            cc.transform.position = new Vector3(4f, 0.5f, -5f);
+            transform.position = startPostion;
         }
-        Survie = Time.time;
-        temps.SetText("" + Survie.ToString("#0.00"));
-        Deplacement();
-        RotationCamera();
-        
+           Survie = Time.time;
+           temps.SetText("" + Survie.ToString("#0.00"));
+           Deplacement();
+           RotationCamera();
     }
     void RotationCamera()
     {

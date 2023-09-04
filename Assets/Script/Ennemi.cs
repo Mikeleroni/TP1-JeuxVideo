@@ -22,10 +22,9 @@ public class Ennemi : MonoBehaviour
     {
         agent.destination = playerRef.transform.position;
     }
-    public static string raison = "";
     private void OnTriggerEnter(Collider other)
     {
-        raison = "Vous avez été touché";
+        PlayerPrefs.SetString("raison", "Vous avez été touché!");
 
         SceneManager.LoadScene("Menu");
     }

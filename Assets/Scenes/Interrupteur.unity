@@ -407,7 +407,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-20590
+  m_Name: pb_Mesh-1248
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -847,7 +847,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3570
+  m_Name: pb_Mesh-1234
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1258,6 +1258,7 @@ MonoBehaviour:
   forceJump: 1
   senssibiliterCamera: 500
   gravity: 2
+  temps: {fileID: 0}
 --- !u!23 &1443417299
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1336,13 +1337,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a5250b162c63f4aad419fd75db43c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transformCamera: {fileID: 457434035}
+  maxDistance: 1
+--- !u!1 &1728549717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8062773974645105946, guid: bd3dffc7541b7f148a4b96ff562b82fe, type: 3}
+  m_PrefabInstance: {fileID: 317689844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1728549725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728549717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a5250b162c63f4aad419fd75db43c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformCamera: {fileID: 0}
+  maxDistance: 0
 --- !u!43 &1839558856
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-20604
+  m_Name: pb_Mesh-1262
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
