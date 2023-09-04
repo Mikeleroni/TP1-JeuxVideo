@@ -7,6 +7,7 @@ TagManager:
   - MessageMort
   - Ennemi
   - TempsLive
+  - Indice
   layers:
   - Default
   - TransparentFX
