@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       startPostion = transform.position;
+        startPostion = transform.position;
         cc = GetComponent<CharacterController>();
         cam = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
