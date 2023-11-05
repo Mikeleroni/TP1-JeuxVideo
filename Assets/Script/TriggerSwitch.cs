@@ -19,8 +19,8 @@ public class TriggerSwitch : MonoBehaviour
     public static string raison = "";
     void Update()
     {
-            int layerMask = LayerMask.GetMask("Interrupteur");
-            RaycastHit hit;
+        int layerMask = LayerMask.GetMask("Interrupteur");
+        RaycastHit hit;
         if((Physics.Raycast(transformCamera.position, transformCamera.TransformDirection(Vector3.forward), out hit, maxDistance, layerMask)))
         {
             text.SetActive(true);

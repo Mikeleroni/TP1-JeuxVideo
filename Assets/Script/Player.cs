@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.GraphicsBuffer;
 
 public class Player : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField] float senssibiliterCamera = 1;
     [SerializeField] float gravity = 1;
     [SerializeField] TextMeshProUGUI temps;
+    [SerializeField] Animator animator;
     Vector3 startPostion = Vector3.zero;
+    float timeElapsed = 0;
 
     Vector3 rotationCamera = Vector3.zero;
     Vector3 jump = Vector3.zero;
@@ -30,28 +33,33 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        timeElapsed += Time.deltaTime;
         if (cc.transform.position.y <= -1)
         {
-            print("Tomber");
-            transform.position = startPostion;
+           print("Tomber");
+           cc.transform.position = startPostion;
         }
         else 
         {
-           Survie = Time.time;
+            Survie = timeElapsed;
            temps.SetText("" + Survie.ToString("#0.00"));
            Deplacement();
            RotationCamera();
-
         }
     }
     void RotationCamera()
     {
+        Vector3 rotation = Vector3.zero;
         rotationCamera += new Vector3(-Input.GetAxis("Mouse Y") * senssibiliterCamera * Time.deltaTime,
                                     Input.GetAxis("Mouse X") * senssibiliterCamera * Time.deltaTime, 0);
-
+        rotation = rotationCamera;
+        rotation.x = Mathf.Clamp(rotation.x, 0f, 0f);
         rotationCamera.x = Mathf.Clamp(rotationCamera.x, -70, 70);
-
         cam.transform.rotation = Quaternion.Euler(rotationCamera);
+        cc.transform.rotation = Quaternion.Euler(rotation);
+        //transform.Rotate(transform.right, -Input.GetAxis("Mouse Y") * 3, Space.World);
+
     }
     void Deplacement()
     {
@@ -61,6 +69,7 @@ public class Player : MonoBehaviour
 
         if (direction.magnitude > 0)
         {
+            animator.SetFloat("Speed", 1);
             direction = new Vector3(direction.x, 0, direction.z);
             //direction.y = 0;
 
@@ -70,6 +79,10 @@ public class Player : MonoBehaviour
             direction = direction * (Input.GetAxis("Sprint") * 0.5f + 1);
 
 
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
         }
         if (cc.isGrounded)
         {
