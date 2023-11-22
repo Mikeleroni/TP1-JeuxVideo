@@ -59,7 +59,7 @@ public class ThirdPersonMouvement : MonoBehaviour
             {
                 animator.SetBool("Sprinting", true);
                 animator.SetFloat("Speed", 3f);
-                speed = 5;
+                speed = 3;
             }
             else
             {
