@@ -141,15 +141,20 @@ public class Inverter : Node
     }
 }
 
+
+
 public class GoToTarget : Node
 {
     Transform target;
     NavMeshAgent agent;
+    Animator animator;
 
-    public GoToTarget(Transform target, NavMeshAgent agent) : base()
+    public GoToTarget(Transform target, NavMeshAgent agent, Animator animator) : base()
     {
         this.target = target;
         this.agent = agent;
+        this.animator = animator;
+        
     }
 
     public override NodeState Evaluate()
@@ -159,7 +164,7 @@ public class GoToTarget : Node
         {
 
             State = NodeState.Running;
-
+            animator.SetBool("Walking", true);
         }
         else
         {
@@ -197,21 +202,72 @@ public class IsWithInRage : Node
     }
 }
 
+public class Tombe : Node
+{
+    Animator animator;
+    float waitTime = 0;
+    float elapsedTime = 0;
+    bool tombe=false;
+    float time =0 ;
+    NavMeshAgent agent;
+
+    public Tombe(NavMeshAgent agent, Animator animator, float waitingTime)
+    {
+        this.animator = animator;
+        this.waitTime = waitingTime;
+        this.agent = agent;
+    }
+    public override NodeState Evaluate()
+    {
+        State = NodeState.Failure;
+        if (!tombe)
+        {
+            if (time >= 4.5f)
+                agent.speed = 1.25f;
+
+            time += Time.deltaTime;
+            elapsedTime += Time.deltaTime;
+            Debug.Log(elapsedTime + "/" + agent.speed + "/" + animator.GetBool("Walking"));
+            if(animator.GetBool("Walking") == false && elapsedTime >= waitTime)
+            {
+                elapsedTime= 0;
+            }
+            else if(elapsedTime >= waitTime && animator.GetBool("Walking") == true) 
+            {
+                time = 0;
+                tombe = true;
+                elapsedTime = 0;
+                animator.SetBool("tombe", true);
+                agent.speed = 0f;
+                State = NodeState.Success;
+            }
+        }
+        else
+        {
+            tombe = false;
+            animator.SetBool("tombe", false);
+            
+        }
+        return State;
+    }
+}
+
 public class PatrolTask : Node
 {
     List<Transform> targets;
     NavMeshAgent agent;
     int targetIndex = 0;
-
+    Animator animator;
     float waitTime = 0;
     float elapsedTime = 0;
     bool isWaiting = false;
 
-    public PatrolTask(List<Transform> targets, NavMeshAgent agent, float waitingTime)
+    public PatrolTask(List<Transform> targets, NavMeshAgent agent, float waitingTime, Animator animator)
     {
         this.targets = targets;
         this.agent = agent;
         this.waitTime = waitingTime;
+        this.animator = animator;
     }
     public override NodeState Evaluate()
     {
@@ -224,6 +280,7 @@ public class PatrolTask : Node
                 isWaiting = false;
                 elapsedTime = 0;
                 targetIndex = (targetIndex + 1) % targets.Count;
+                animator.SetBool("Walking", true);
             }
         }
         else
@@ -235,6 +292,7 @@ public class PatrolTask : Node
             if (Vector3.Distance(agent.transform.position, targets[targetIndex].position) <= agent.stoppingDistance)
             {
                 isWaiting = true;
+                animator.SetBool("Walking", false);
             }
         }
         return State;
