@@ -76,6 +76,7 @@ public class ThirdPersonMouvement : MonoBehaviour
         }
         else
         {
+            animator.SetBool("Sprinting", false);
             speed = originalSpeed;
             animator.SetFloat("Speed", 0f);
         }

@@ -526,18 +526,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Ch24_nonPBR 1(Clone)
+    - name: Ch24_nonPBR(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Ch24
-      parentName: Ch24_nonPBR 1(Clone)
+      parentName: Ch24_nonPBR(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
-      parentName: Ch24_nonPBR 1(Clone)
+      parentName: Ch24_nonPBR(Clone)
       position: {x: 0.00004297478, y: 0.9353755, z: -0.003354269}
       rotation: {x: 0.0000070294577, y: 0.000011159341, z: -0.00034480542, w: 0.99999994}
       scale: {x: 1, y: 1, z: 1}
@@ -873,7 +873,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 6f8294e8f3120c7498049f8069c5f3ca, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e6be8f07cfdbc33448160b8fd1e775ea, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
