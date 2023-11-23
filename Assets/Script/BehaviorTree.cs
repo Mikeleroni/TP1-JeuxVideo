@@ -8,6 +8,10 @@ using static UnityEngine.GraphicsBuffer;
 
 public enum NodeState { Running, Success, Failure }
 
+//public static class GlobalVariables
+//{
+//    public static bool Chase { get; set; }
+//}
 public abstract class Node
 {
     protected NodeState State { get; set; }
@@ -194,7 +198,6 @@ public class IsWithInRage : Node
         State = NodeState.Failure;
         if (Vector3.Distance(self.position, target.position) <= detectionRange)
         {
-
             Debug.Log("J'tai vue");
             State = NodeState.Success;
         }
@@ -208,9 +211,8 @@ public class Tombe : Node
     float waitTime = 0;
     float elapsedTime = 0;
     bool tombe=false;
-    float time =0 ;
+    float time =4.6f ;
     NavMeshAgent agent;
-
     public Tombe(NavMeshAgent agent, Animator animator, float waitingTime)
     {
         this.animator = animator;
@@ -224,21 +226,26 @@ public class Tombe : Node
         {
             if (time >= 4.5f)
                 agent.speed = 1.25f;
+            if (time <= 1.5f)
+                agent.speed = 1.25f;
+            else if (time <= 4.5f)
+                agent.speed = 0;
 
             time += Time.deltaTime;
             elapsedTime += Time.deltaTime;
             Debug.Log(elapsedTime + "/" + agent.speed + "/" + animator.GetBool("Walking"));
             if(animator.GetBool("Walking") == false && elapsedTime >= waitTime)
             {
-                elapsedTime= 0;
+                elapsedTime= waitTime/1.2f;
             }
-            else if(elapsedTime >= waitTime && animator.GetBool("Walking") == true) 
+            else if(elapsedTime >= waitTime && animator.GetBool("Walking")) 
             {
                 time = 0;
                 tombe = true;
                 elapsedTime = 0;
                 animator.SetBool("tombe", true);
                 agent.speed = 0f;
+
                 State = NodeState.Success;
             }
         }

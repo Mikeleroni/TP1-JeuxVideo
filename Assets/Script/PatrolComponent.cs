@@ -21,6 +21,7 @@ public class PatrolComponent : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        //GlobalVariables.Chase = false;
         SetupTree();
     }
 
@@ -29,10 +30,10 @@ public class PatrolComponent : MonoBehaviour
         Node l1 = new IsWithInRage(target, transform, detectionRange);
         Node l2 = new GoToTarget(target, agent, animator);
         Node seq1 = new Sequence(new List<Node>() { l1, l2});
-        Node l4 = new Tombe(agent, animator, 8);
+        Node l4 = new Tombe(agent, animator, 31);
         Node seq2 = new Sequence(new List<Node>() { l4 });
         Node l3 = new PatrolTask(destinations, agent, waitTime, animator);
-        Node sel1 = new Selector(new List<Node>() { seq1, seq2, l3 });
+        Node sel1 = new Selector(new List<Node>() {seq2,seq1, l3 });
         
         root = sel1;
     }
