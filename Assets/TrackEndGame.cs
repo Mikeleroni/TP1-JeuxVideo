@@ -21,14 +21,15 @@ public class TrackEndGame : MonoBehaviour
         Debug.DrawRay(transform.position, fwd, Color.blue);
         if (Physics.Raycast(transform.position, transform.forward, out objectHit, 0.5f))
         {
-            text.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (objectHit.collider.tag == "Player")
             {
-                if (objectHit.collider.tag == "Player")
+                text.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     PlayerPrefs.SetString("raison", "Vous avez gagnée!");
                     SceneManager.LoadScene("Menu");
                 }
+
             }
         }
         else
