@@ -7,26 +7,22 @@ public class TriggerButton : MonoBehaviour
 {
     [SerializeField] Transform button;
     [SerializeField] Animator animator;
+    [SerializeField] Animator animatorPorte;
     ThirdPersonMouvement personMouvement;
-    GameObject box;
-    GameObject porte;
-    public float moveDistance = 1f;
+    //GameObject box;
     private bool isMovingUp = false;
-    private bool isMovingDown = true;
 
     // Start is called before the first frame update
     private void Awake()
     {
         personMouvement = GetComponent<ThirdPersonMouvement>();
-        box = GameObject.FindGameObjectWithTag("Box");
-        porte = GameObject.FindGameObjectWithTag("Porte");
+        //box = GameObject.FindGameObjectWithTag("Box");
         
     }
     // Update is called once per frame
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
         if(Vector3.Distance(button.position,transform.position)<=0.8f) 
         {
             if(Input.GetKeyDown(KeyCode.F)) 
@@ -37,45 +33,40 @@ public class TriggerButton : MonoBehaviour
                 animator.SetTrigger("Triggered");
                 personMouvement.enabled = false;
                 isMovingUp = !isMovingUp;
-                isMovingDown= !isMovingDown;
-                Debug.Log("Yes");
-                Renderer renderer = box.GetComponent<Renderer>();
-                if (renderer != null)
-                {
-                    // Si l'objet a un Renderer, changer sa couleur
-                    Material material = renderer.material;
-                    if(material.color != Color.red)
-                    {
-                        material.color = Color.red;
-                    }
-                    else
-                    {
-                        material.color = Color.white;
-                    }
+                //Debug.Log("Yes");
+                //Renderer renderer = box.GetComponent<Renderer>();
+                //if (renderer != null)
+                //{
+                //    // Si l'objet a un Renderer, changer sa couleur
+                //    Material material = renderer.material;
+                //    if(material.color != Color.red)
+                //    {
+                //        material.color = Color.red;
+                //    }
+                //    else
+                //    {
+                //        material.color = Color.white;
+                //    }
                     
-                }
+                //}
             }
         }
-        if (isMovingUp)
-        {
-            porte.transform.Translate(Vector3.up * moveDistance * Time.deltaTime, Space.World);
-        }
-        if (porte.transform.position.y >= 2.5f)
-        {
-            isMovingUp = false;
-        }
-        if (isMovingDown)
-        {
-            porte.transform.Translate(Vector3.down * moveDistance * Time.deltaTime, Space.World);
-        }
-        if (porte.transform.position.y <= 0)
-        {
-            isMovingDown = false;
-        }
+        
 
     }
     public void AlertAnimationEnd()
     {
         personMouvement.enabled = true;
+        if (isMovingUp)
+        {
+            animatorPorte.SetBool("Ouvrir", true);
+            animatorPorte.SetBool("Fermer", false);
+
+        }
+        else
+        {
+            animatorPorte.SetBool("Fermer", true);
+            animatorPorte.SetBool("Ouvrir", false);
+        }
     }
 }
