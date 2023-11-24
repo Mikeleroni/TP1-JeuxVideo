@@ -9,6 +9,8 @@ TagManager:
   - TempsLive
   - Indice
   - Button
+  - Box
+  - Porte
   layers:
   - Default
   - TransparentFX

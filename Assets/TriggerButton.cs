@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class TriggerButton : MonoBehaviour
@@ -8,12 +9,17 @@ public class TriggerButton : MonoBehaviour
     [SerializeField] Animator animator;
     ThirdPersonMouvement personMouvement;
     GameObject box;
-    
+    GameObject porte;
+    public float moveDistance = 1f;
+    private bool isMovingUp = false;
+    private bool isMovingDown = true;
+
     // Start is called before the first frame update
     private void Awake()
     {
         personMouvement = GetComponent<ThirdPersonMouvement>();
         box = GameObject.FindGameObjectWithTag("Box");
+        porte = GameObject.FindGameObjectWithTag("Porte");
         
     }
     // Update is called once per frame
@@ -30,6 +36,8 @@ public class TriggerButton : MonoBehaviour
                 //transform.position= new Vector3(-3.8f, 1.13f, 8.4f);
                 animator.SetTrigger("Triggered");
                 personMouvement.enabled = false;
+                isMovingUp = !isMovingUp;
+                isMovingDown= !isMovingDown;
                 Debug.Log("Yes");
                 Renderer renderer = box.GetComponent<Renderer>();
                 if (renderer != null)
@@ -48,6 +56,23 @@ public class TriggerButton : MonoBehaviour
                 }
             }
         }
+        if (isMovingUp)
+        {
+            porte.transform.Translate(Vector3.up * moveDistance * Time.deltaTime, Space.World);
+        }
+        if (porte.transform.position.y >= 2.5f)
+        {
+            isMovingUp = false;
+        }
+        if (isMovingDown)
+        {
+            porte.transform.Translate(Vector3.down * moveDistance * Time.deltaTime, Space.World);
+        }
+        if (porte.transform.position.y <= 0)
+        {
+            isMovingDown = false;
+        }
+
     }
     public void AlertAnimationEnd()
     {
