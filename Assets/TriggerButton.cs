@@ -7,17 +7,15 @@ public class TriggerButton : MonoBehaviour
     [SerializeField] Transform button;
     [SerializeField] Animator animator;
     ThirdPersonMouvement personMouvement;
+    GameObject box;
     
     // Start is called before the first frame update
     private void Awake()
     {
         personMouvement = GetComponent<ThirdPersonMouvement>();
+        box = GameObject.FindGameObjectWithTag("Box");
+        
     }
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -33,6 +31,21 @@ public class TriggerButton : MonoBehaviour
                 animator.SetTrigger("Triggered");
                 personMouvement.enabled = false;
                 Debug.Log("Yes");
+                Renderer renderer = box.GetComponent<Renderer>();
+                if (renderer != null)
+                {
+                    // Si l'objet a un Renderer, changer sa couleur
+                    Material material = renderer.material;
+                    if(material.color != Color.red)
+                    {
+                        material.color = Color.red;
+                    }
+                    else
+                    {
+                        material.color = Color.white;
+                    }
+                    
+                }
             }
         }
     }
