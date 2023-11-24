@@ -198,7 +198,7 @@ public class IsWithInRage : Node
         State = NodeState.Failure;
         if (Vector3.Distance(self.position, target.position) <= detectionRange)
         {
-            Debug.Log("J'tai vue");
+            //Debug.Log("J'tai vue");
             State = NodeState.Success;
         }
         return State;
@@ -233,7 +233,7 @@ public class Tombe : Node
 
             time += Time.deltaTime;
             elapsedTime += Time.deltaTime;
-            Debug.Log(elapsedTime + "/" + agent.speed + "/" + animator.GetBool("Walking"));
+            //Debug.Log(elapsedTime + "/" + agent.speed + "/" + animator.GetBool("Walking"));
             if(animator.GetBool("Walking") == false && elapsedTime >= waitTime)
             {
                 elapsedTime= waitTime/1.2f;
