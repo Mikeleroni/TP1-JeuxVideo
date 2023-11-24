@@ -26,7 +26,6 @@ public class TriggerButton : MonoBehaviour
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
         if(Vector3.Distance(button.position,transform.position)<=0.8f) 
         {
             if(Input.GetKeyDown(KeyCode.F)) 

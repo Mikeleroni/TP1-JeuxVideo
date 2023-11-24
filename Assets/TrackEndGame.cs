@@ -16,15 +16,14 @@ public class TrackEndGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          RaycastHit objectHit;
-          Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        if (Physics.Raycast(transform.position, transform.forward, out objectHit, 2))
+        RaycastHit objectHit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        Debug.DrawRay(transform.position, fwd, Color.blue);
+        if (Physics.Raycast(transform.position, transform.forward, out objectHit, 0.5f))
         {
             text.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-
-                //do something if hit object ie
                 if (objectHit.collider.tag == "Player")
                 {
                     PlayerPrefs.SetString("raison", "Vous avez gagnée!");

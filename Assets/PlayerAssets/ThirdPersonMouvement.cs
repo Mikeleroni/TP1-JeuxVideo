@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -19,11 +20,15 @@ public class ThirdPersonMouvement : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] Transform groundCheck;
     [SerializeField] Transform ground;
+    [SerializeField] TextMeshProUGUI temps;
     float turnSmoothVelocity;
     Vector3 verticalVelocity = Vector3.zero;
     bool isGrounded = false;
     Animator animator;
     float originalSpeed;
+    float timeElapsed;
+    public static float Survie;
+   
     // Start is called before the first frame update
 
     private void Awake()
@@ -39,6 +44,10 @@ public class ThirdPersonMouvement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+           timeElapsed += Time.deltaTime;
+            Survie = timeElapsed;
+            temps.SetText("" + Survie.ToString("#0.00"));
+        
         float halfHeight = controller.height * 0.5f;
         var bottomPoint = transform.TransformPoint(controller.center - Vector3.up * halfHeight);
         isGrounded = Physics.CheckSphere(bottomPoint, 0.1f, groundMask);

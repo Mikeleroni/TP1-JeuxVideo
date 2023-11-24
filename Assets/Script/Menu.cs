@@ -11,7 +11,7 @@ public class Menu : MonoBehaviour
     void Start()
     {
         textToucher.SetText(PlayerPrefs.GetString("raison"));
-        temps.SetText("Temps: " + Player.Survie.ToString("#0.00"));
+        temps.SetText("Temps: " + ThirdPersonMouvement.Survie.ToString("#0.00"));
     }
 
     // Update is called once per frame
