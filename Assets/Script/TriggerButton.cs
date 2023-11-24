@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class TriggerButton : MonoBehaviour
     [SerializeField] Transform button;
     [SerializeField] Animator animator;
     [SerializeField] Animator animatorPorte;
+    [SerializeField] GameObject text;
     ThirdPersonMouvement personMouvement;
     //GameObject box;
     private bool isMovingUp = false;
@@ -25,6 +27,7 @@ public class TriggerButton : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Vector3.Distance(button.position,transform.position)<=0.8f) 
         {
+            text.SetActive(true);
             if(Input.GetKeyDown(KeyCode.F) && !animator.GetBool("Sprinting") && animator.GetFloat("Speed")<1) 
             {
                 transform.position = new Vector3(-4.27416849f, 1.12999964f, 8.55945587f);
@@ -50,6 +53,10 @@ public class TriggerButton : MonoBehaviour
                     
                 //}
             }
+        }
+        else
+        {
+            text.SetActive(false);
         }
         
 
