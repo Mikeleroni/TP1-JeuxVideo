@@ -18,8 +18,6 @@ public class ThirdPersonMouvement : MonoBehaviour
     [SerializeField] float jumpSpeed = 15;
     [SerializeField] float gravity = -30f;
     [SerializeField] LayerMask groundMask;
-    [SerializeField] Transform groundCheck;
-    [SerializeField] Transform ground;
     [SerializeField] TextMeshProUGUI temps;
     float turnSmoothVelocity;
     Vector3 verticalVelocity = Vector3.zero;

@@ -25,7 +25,7 @@ public class TriggerButton : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Vector3.Distance(button.position,transform.position)<=0.8f) 
         {
-            if(Input.GetKeyDown(KeyCode.F)) 
+            if(Input.GetKeyDown(KeyCode.F) && !animator.GetBool("Sprinting") && animator.GetFloat("Speed")<1) 
             {
                 transform.position = new Vector3(-4.27416849f, 1.12999964f, 8.55945587f);
                 transform.rotation = Quaternion.Euler( new Vector3(0, 208.563904f, 0));
