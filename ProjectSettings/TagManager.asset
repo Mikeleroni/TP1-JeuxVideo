@@ -8,6 +8,7 @@ TagManager:
   - Ennemi
   - TempsLive
   - Indice
+  - Button
   layers:
   - Default
   - TransparentFX

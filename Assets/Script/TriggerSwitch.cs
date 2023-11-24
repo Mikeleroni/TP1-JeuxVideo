@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
-using TMPro;
+//using TMPro;
 
 
 public class TriggerSwitch : MonoBehaviour
 {
-    [SerializeField] Transform transformCamera;
-    [SerializeField] float maxDistance;
-    [SerializeField] GameObject text;
+    [SerializeField] Transform interrupteur;
+   // [SerializeField] float maxDistance;
+    //[SerializeField] GameObject text;
     bool triggered;
 
     void Start()
@@ -19,6 +19,7 @@ public class TriggerSwitch : MonoBehaviour
     public static string raison = "";
     void Update()
     {
+        /*
         int layerMask = LayerMask.GetMask("Interrupteur");
         RaycastHit hit;
         if((Physics.Raycast(transformCamera.position, transformCamera.TransformDirection(Vector3.forward), out hit, maxDistance, layerMask)))
@@ -35,5 +36,16 @@ public class TriggerSwitch : MonoBehaviour
         {
             text.SetActive(false);
         }
+        */
+        if (Vector3.Distance(transform.position,interrupteur.position)<=2)
+        {
+            Debug.Log("lol");
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                PlayerPrefs.SetString("raison", "Vous avez gagnée!");
+                SceneManager.LoadScene("Menu");
+            }
+        }
     }
+        
 }
